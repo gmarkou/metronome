@@ -8,16 +8,22 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      bpm: 60
+      bpm: 60,
+      started: false
     };
 
     this.changeBpm = this.changeBpm.bind(this);
+    this.startStop = this.startStop.bind(this);
   }
 
   changeBpm(delta) {
     let newBpm = Math.max(this.state.bpm + delta, 30);
     newBpm = Math.min(newBpm, 400);
     this.setState({bpm: newBpm});
+  }
+
+  startStop() {
+    this.setState({started:!this.state.started});
   }
 
   render() {
@@ -30,7 +36,7 @@ class App extends React.Component {
           </div>
           <div class="center">
             <button id="minus10" onClick={()=>this.changeBpm(-10)}>-10</button>
-            <button id="startStop">Start</button>
+            <button id="startStop"onClick={()=>this.startStop()}>{this.state.started ? "Stop":"Start"}</button>
             <button id="plus10" onClick={()=>this.changeBpm(10)}>+10</button>
           </div>
         </div>
