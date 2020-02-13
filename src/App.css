@@ -75,37 +75,38 @@ header nav ul li a.current-page{
   }
 }
 
-#bpm {
+.bpm {
   font-size: 5em;
   text-align: center;
+  margin: 2rem 0;
 }
 
-#startStop,
-#startStop:focus {
-  width: 8rem;
-  height: 8rem;
-  border: 0px;
-  border-radius: 4rem;
-  background-color: #eee;
-  margin: 0 1em;
-}
-#startStop:hover
-{
-  background-color: #ddd;
-}
-#startStop:active{
-  background-color: #ccc;
-}
-
-#minus10, 
-#plus10 {
+.ctrl-button,
+.ctrl-button:focus {
   width: 4rem;
   height: 4rem;
   border: 0px;
-  border-radius: 2rem;
-  margin: 0 1em;
+  border-radius: 1rem;
+  margin: 0 0.5em;
   background-color: #eee;
 }
+
+.ctrl-button:hover
+{
+  background-color: #ddd;
+}
+.ctrl-button:active{
+  background-color: #ccc;
+}
+
+.ctrl-button-large,
+.ctrl-button-large:focus {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1rem;
+
+}
+
 .center {
   display:flex;
   justify-content: center;

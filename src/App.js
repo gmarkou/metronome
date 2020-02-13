@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './Header'
+import Button from './Button'
 import Metronome from './Metronome';
 import './App.css';
 
@@ -49,14 +50,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <div id="metronome" class="content">
-          <div id="output">
-            <p id="bpm">{bpm}</p>
+        <div className="content">
+          <div>
+            <p className="bpm">{bpm}</p>
           </div>
-          <div class="center">
-            <button id="minus10" onClick={()=>this.changeBpm(-10)}>-10</button>
-            <button id="startStop"onClick={()=>this.startStop()}>{started ? "Stop":"Start"}</button>
-            <button id="plus10" onClick={()=>this.changeBpm(10)}>+10</button>
+          <div className="center">
+            <Button className="ctrl-button" onClick={()=>this.changeBpm(-1)}>-1</Button>
+            <Button className="ctrl-button" onClick={()=>this.changeBpm(-10)}>-10</Button>
+            <Button className="ctrl-button ctrl-button-large" onClick={()=>this.startStop()}>{started ? "Stop":"Start"}</Button>
+            <Button className="ctrl-button" onClick={()=>this.changeBpm(10)}>+10</Button>
+            <Button className="ctrl-button" onClick={()=>this.changeBpm(1)}>+1</Button>
           </div>
         </div>
       </div>
