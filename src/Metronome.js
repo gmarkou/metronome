@@ -6,11 +6,12 @@ class Metronome {
         this.bpm = 60;
     }
 
-    changeBpm (delta) {
-        this.bpm += delta;
+    setBpm (new_bpm) {
+        this.bpm = new_bpm;
         this.bpm = Math.max(this.bpm, 30);
         this.bpm = Math.min(this.bpm, 400);
         this.interval = 60.0 / this.bpm;
+        return this.bpm;
     }
 
     createContext() {
@@ -64,3 +65,5 @@ class Metronome {
          }
      }
 };
+
+export default Metronome;
