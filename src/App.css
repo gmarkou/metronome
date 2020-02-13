@@ -70,6 +70,9 @@ header nav ul li a.current-page{
   nav {
       justify-content: space-around;
   }
+  header {
+    padding: 2em 0;
+  }
   header h1 {
       margin : 0 0 20px 0;
   }
