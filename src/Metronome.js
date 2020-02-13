@@ -4,6 +4,7 @@ class Metronome {
         this.contextClass = null;
         this.interval_id = null;
         this.bpm = 60;
+        this.RenderNext = this.renderNext.bind(this);
     }
 
     setBpm (new_bpm) {
@@ -30,8 +31,8 @@ class Metronome {
 
         this.interval = 60.0/this.bpm;
         this.next_tick_time = this.context.currentTime + this.interval;
-        this.ScheduleTick(0);
-        this.interval_id = setInterval(this.Render100ms.bind(this), 25);
+        this.scheduleTick(0);
+        this.interval_id = setInterval(() => this.renderNext(0.35), 25);
     }
 
     started() {
@@ -46,21 +47,21 @@ class Metronome {
         }
     }
 
-    ScheduleTick(t) {
+    scheduleTick(t) {
         let sfx = this.context.createBufferSource();
         sfx.buffer = this.buffer;
         sfx.connect(this.context.destination);
         sfx.start(t);
     }
     
-    Render100ms() {
+    renderNext(sec) {
          let now_time = this.context.currentTime;
 
          while (this.next_tick_time < now_time) {
              this.next_tick_time += this.interval;
          }
-         while (this.next_tick_time < now_time + 0.35) {
-             this.ScheduleTick(this.next_tick_time);
+         while (this.next_tick_time < now_time + sec) {
+             this.scheduleTick(this.next_tick_time);
              this.next_tick_time += this.interval;
          }
      }
